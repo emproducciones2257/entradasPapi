@@ -3,5 +3,7 @@
     <string name="textCantidad">Cantidad: 0</string>
     <string name="txtNumeroNocheActual">Noche:</string>
     <string name="txtCantidadEntradasNocheVigente">Entradas:</string>
-    <string name="txtRecaudacion">Recaudacion:</string>
+    <string name="txtRecaudacion">Recaudacion</string>
+    <string name="txtNroNoche">Noche</string>
+    <string name="txtCantidad">Cantidad</string>
 </resources>

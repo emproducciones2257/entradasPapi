@@ -1,15 +1,13 @@
 package com.emproducciones.entradaspapi.UI;
 
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.emproducciones.entradaspapi.R;
-import com.emproducciones.entradaspapi.db.entidad.resumenNoches;
-
+import com.emproducciones.entradaspapi.db.entidad.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -33,10 +31,11 @@ public class MyentradasRecyclerViewAdapter extends RecyclerView.Adapter<Myentrad
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
-
         holder.entrada = entradas.get(position);
+        int temp = holder.entrada.getTotalEntradasNoche();
         holder.txtNroNoche.setText(holder.entrada.getId()+"");
         holder.txtCantidadEntradas.setText(holder.entrada.getTotalEntradasNoche()+"");
+        holder.txtRecaudacion.setText("$ " + (temp*constantes.PRECIO_ENTRADA));
     }
 
     @Override
@@ -53,6 +52,7 @@ public class MyentradasRecyclerViewAdapter extends RecyclerView.Adapter<Myentrad
         public final View mView;
         public final TextView txtNroNoche;
         public final TextView txtCantidadEntradas;
+        public final TextView txtRecaudacion;
         public resumenNoches entrada;
 
         public ViewHolder(View view) {
@@ -60,6 +60,7 @@ public class MyentradasRecyclerViewAdapter extends RecyclerView.Adapter<Myentrad
             mView = view;
             txtNroNoche = view.findViewById(R.id.txtNroNoche);
             txtCantidadEntradas = view.findViewById(R.id.txtCantidadEntradas);
+            txtRecaudacion = view.findViewById(R.id.txtValorRecaudacion);
         }
 
         @Override
