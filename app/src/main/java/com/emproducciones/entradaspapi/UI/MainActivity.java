@@ -17,13 +17,11 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
-    private TextView total,cantidad,txtNroNoche;
-    private  Button confirmar;
-    private int entradas = 0;
+    private TextView total,txtNroNoche;
+    private  Button confirmar, btnElegido;
     private FloatingActionButton btn;
     private gestionNocheFecha fecha;
     private entradasViewModel viewModel;
-
     public static gestionNocheFecha fechaBD;
 
     @Override
@@ -31,8 +29,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         total = findViewById(R.id.total);
-        cantidad = findViewById(R.id.cantidad);
         btn = findViewById(R.id.flotante);
+
         confirmar = findViewById(R.id.btnConfirmar);
         txtNroNoche=findViewById(R.id.txtNroNoche);
         viewModel = ViewModelProviders.of(this).get(entradasViewModel.class);
@@ -48,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        }
+    }
 
     public void flotante(View v){
 
@@ -59,38 +57,36 @@ public class MainActivity extends AppCompatActivity {
        }
     }
 
-    public void sumar (View v){
-        entradas++;
-        mostrar();
-    }
-    public void restar (View v){
-        if(entradas<=0){
-            entradas=0;
-            mostrar();
-        }else {
-            entradas--;
-            mostrar();
-        }
-    }
-
-    void mostrar (){
-        cantidad.setText("Cantidad: " + entradas);
-        precion();
-    }
-
-    void precion(){
+    void precion(int entradas){
         total.setText((entradas* constantes.PRECIO_ENTRADA)+"");
     }
 
     public void confirmar(View v) {
-        if (entradas!=0){
-            viewModel.insertarEntrada(new nocheVigente(MainActivity.fechaBD.getNumeroNoche(), entradas));
-            entradas=0;
-            mostrar();
+        if (btnElegido!=null){
+            viewModel.insertarEntrada(new nocheVigente(MainActivity.fechaBD.getNumeroNoche(), Integer.parseInt(btnElegido.getText().toString())));
+            precion(0);
             Toast mensaje = Toast.makeText(getApplicationContext(),"Imprimiendo Entradas",Toast.LENGTH_SHORT);
             mensaje.show();
+            estadoBtn(btnElegido,true);
+            btnElegido=null;
             //imprimir();
         }
+    }
+
+    private void estadoBtn(Button btn, Boolean estado){
+
+        btn.setEnabled(estado);
+    }
+
+    public void numeroBtn(View view){
+        Button btn = (Button)view;
+        if (btnElegido!=null){
+            estadoBtn(btnElegido,true);
+            precion(0);
+        }
+        btnElegido =btn;
+        precion(Integer.parseInt(btnElegido.getText().toString()));
+        estadoBtn(btn,false);
     }
 
     public void verificarFechaVigente() {

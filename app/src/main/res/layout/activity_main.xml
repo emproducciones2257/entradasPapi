@@ -147,45 +147,6 @@
                     android:orientation="horizontal"
                     app:layout_constraintGuide_percent="0.89" />
 
-                <TextView
-                    android:id="@+id/cantidad"
-                    style="@style/textosNumeros"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="@string/textCantidad"
-                    android:textAlignment="center"
-                    android:textColor="@color/primaryColor"
-                    app:layout_constraintBottom_toTopOf="@+id/guideline7"
-                    app:layout_constraintEnd_toStartOf="@+id/guideline8"
-                    app:layout_constraintStart_toStartOf="@+id/guideline9"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <ImageButton
-                    android:id="@+id/imageButton"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:layout_marginTop="4dp"
-                    android:backgroundTint="@color/primaryTextColor"
-                    android:onClick="sumar"
-                    app:layout_constraintBottom_toTopOf="@+id/guideline10"
-                    app:layout_constraintEnd_toStartOf="@+id/guideline8"
-                    app:layout_constraintStart_toStartOf="@+id/guideline12"
-                    app:layout_constraintTop_toTopOf="@+id/guideline7"
-                    app:srcCompat="@drawable/esquema" />
-
-                <ImageButton
-                    android:id="@+id/imageButton2"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:backgroundTint="@color/primaryTextColor"
-                    android:onClick="restar"
-                    app:layout_constraintBottom_toTopOf="@+id/guideline10"
-                    app:layout_constraintEnd_toStartOf="@+id/guideline13"
-                    app:layout_constraintStart_toStartOf="@+id/guideline9"
-                    app:layout_constraintTop_toTopOf="@+id/guideline7"
-                    app:srcCompat="@drawable/esquema_bajo" />
-
                 <androidx.constraintlayout.widget.Guideline
                     android:id="@+id/guideline9"
                     android:layout_width="wrap_content"
@@ -221,6 +182,175 @@
                     android:orientation="vertical"
                     app:layout_constraintGuide_percent="0.40" />
 
+                <androidx.gridlayout.widget.GridLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    app:columnCount="3"
+                    app:layout_constraintBottom_toTopOf="@+id/guideline10"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline8"
+                    app:layout_constraintStart_toStartOf="@+id/guideline9"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:rowCount="3">
+
+                    <Button
+                        android:id="@+id/btnN1"
+                        style="@style/Widget.AppCompat.Button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="numeroBtn"
+                        android:padding="8dp"
+                        android:paddingStart="8dp"
+                        android:paddingLeft="8dp"
+                        android:paddingTop="8dp"
+                        android:paddingEnd="8dp"
+                        android:paddingRight="8dp"
+                        android:paddingBottom="8dp"
+                        android:text="1"
+                        android:textColor="@color/design_default_color_primary"
+                        android:textSize="36sp"
+                        android:textStyle="bold"
+                        app:layout_rowWeight="1" />
+
+                    <Button
+                        android:id="@+id/btnN2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="numeroBtn"
+                        android:padding="8dp"
+                        android:paddingStart="8dp"
+                        android:paddingLeft="8dp"
+                        android:paddingTop="8dp"
+                        android:paddingEnd="8dp"
+                        android:paddingRight="8dp"
+                        android:paddingBottom="8dp"
+                        android:text="2"
+                        android:textColor="@color/design_default_color_primary"
+                        android:textSize="36sp"
+                        android:textStyle="bold"
+                        app:layout_rowWeight="1" />
+
+                    <Button
+                        android:id="@+id/btnN3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="numeroBtn"
+                        android:padding="8dp"
+                        android:paddingStart="8dp"
+                        android:paddingLeft="8dp"
+                        android:paddingTop="8dp"
+                        android:paddingEnd="8dp"
+                        android:paddingRight="8dp"
+                        android:paddingBottom="8dp"
+                        android:text="3"
+                        android:textColor="@color/design_default_color_primary"
+                        android:textSize="36sp"
+                        app:layout_rowWeight="1" />
+
+                    <Button
+                        android:id="@+id/btnN4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="numeroBtn"
+                        android:padding="8dp"
+                        android:paddingStart="8dp"
+                        android:paddingLeft="8dp"
+                        android:paddingTop="8dp"
+                        android:paddingEnd="8dp"
+                        android:paddingRight="8dp"
+                        android:paddingBottom="8dp"
+                        android:text="4"
+                        android:textColor="@color/design_default_color_primary"
+                        android:textSize="36sp"
+                        app:layout_rowWeight="1" />
+
+                    <Button
+                        android:id="@+id/btnN5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="numeroBtn"
+                        android:padding="8dp"
+                        android:paddingStart="8dp"
+                        android:paddingLeft="8dp"
+                        android:paddingTop="8dp"
+                        android:paddingEnd="8dp"
+                        android:paddingRight="8dp"
+                        android:paddingBottom="8dp"
+                        android:text="5"
+                        android:textColor="@color/design_default_color_primary"
+                        android:textSize="36sp"
+                        app:layout_columnWeight="0"
+                        app:layout_rowWeight="1" />
+
+                    <Button
+                        android:id="@+id/btnN6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="numeroBtn"
+                        android:padding="8dp"
+                        android:paddingStart="8dp"
+                        android:paddingLeft="8dp"
+                        android:paddingTop="8dp"
+                        android:paddingEnd="8dp"
+                        android:paddingRight="8dp"
+                        android:paddingBottom="8dp"
+                        android:text="6"
+                        android:textColor="@color/design_default_color_primary"
+                        android:textSize="36sp"
+                        app:layout_columnWeight="0"
+                        app:layout_rowWeight="1" />
+
+                    <Button
+                        android:id="@+id/btnN7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="numeroBtn"
+                        android:padding="8dp"
+                        android:paddingStart="8dp"
+                        android:paddingLeft="8dp"
+                        android:paddingTop="8dp"
+                        android:paddingEnd="8dp"
+                        android:paddingRight="8dp"
+                        android:paddingBottom="8dp"
+                        android:text="7"
+                        android:textColor="@color/design_default_color_primary"
+                        android:textSize="36sp"
+                        app:layout_rowWeight="1" />
+
+                    <Button
+                        android:id="@+id/btnN8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="numeroBtn"
+                        android:padding="8dp"
+                        android:paddingStart="8dp"
+                        android:paddingLeft="8dp"
+                        android:paddingTop="8dp"
+                        android:paddingEnd="8dp"
+                        android:paddingRight="8dp"
+                        android:paddingBottom="8dp"
+                        android:text="8"
+                        android:textColor="@color/design_default_color_primary"
+                        android:textSize="36sp"
+                        app:layout_rowWeight="1" />
+
+                    <Button
+                        android:id="@+id/btnN9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:onClick="numeroBtn"
+                        android:padding="8dp"
+                        android:paddingStart="8dp"
+                        android:paddingLeft="8dp"
+                        android:paddingTop="8dp"
+                        android:paddingEnd="8dp"
+                        android:paddingRight="8dp"
+                        android:paddingBottom="8dp"
+                        android:text="9"
+                        android:textColor="@color/design_default_color_primary"
+                        android:textSize="36sp"
+                        app:layout_rowWeight="1" />
+                </androidx.gridlayout.widget.GridLayout>
+
                 <ImageView
                     android:id="@+id/imageView"
                     android:layout_width="wrap_content"
@@ -242,7 +372,7 @@
                     app:layout_constraintBottom_toTopOf="@+id/guidelineTopCardCentro"
                     app:layout_constraintEnd_toStartOf="@+id/guideline8"
                     app:layout_constraintStart_toStartOf="@+id/guideline12"
-                    app:layout_constraintTop_toBottomOf="@+id/imageButton" />
+                    app:layout_constraintTop_toTopOf="@+id/guideline10" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
