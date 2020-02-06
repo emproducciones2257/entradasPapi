@@ -37,10 +37,12 @@ public class entradasNocheVigenteReal extends AppCompatActivity {
     public void cerrarNoche(View view){
         //metodo que finaliza la venta de entradas de la noche y carga al registro de entradas totales
 
-        // pongo la fecha en false
+        // pongo la fecha en false y cargo fecha nueva
         gestionNocheFecha fechaParaCerrar = MainActivity.fechaBD;
         fechaParaCerrar.setEstado(0);
         respositorio.cerrarNoche(fechaParaCerrar);
+        gestionNocheFecha a = respositorio.obtenerUltimaFecha();
+        respositorio.registrarNoche(new gestionNocheFecha(MainActivity.fechaActual().toString(),a.getNumeroNoche()+1,1));
 
         // registro el total de entradas en el historial
 
@@ -56,7 +58,7 @@ public class entradasNocheVigenteReal extends AppCompatActivity {
 
         txtCantidadEntradasNocheVigente.setText("Entradas: " + 0);
         txtRecaudacionNoche.setText("Recaudacion: $" + 0);
-
+        txtNocheActual.setText("Noche: " + (a.getNumeroNoche()+1) );
 
     }
 }

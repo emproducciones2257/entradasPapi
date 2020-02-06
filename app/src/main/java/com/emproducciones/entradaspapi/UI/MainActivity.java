@@ -112,4 +112,15 @@ public class MainActivity extends AppCompatActivity {
         intent.putExtra(android.content.Intent.EXTRA_TEXT,textToPrint);
         startActivity(intent);
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        gestionNocheFecha mod = new gestionNocheFecha();
+        gestionNocheFecha fe = mod.verificarFecha(fechaActual(),getApplication());
+
+        if(fe.getNumeroNoche()!= MainActivity.fechaBD.getNumeroNoche()){
+            txtNroNoche.setText("Noche: "+ fe.getNumeroNoche());
+        }
+    }
 }
